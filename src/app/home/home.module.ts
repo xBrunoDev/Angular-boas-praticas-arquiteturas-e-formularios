@@ -1,4 +1,4 @@
-import { MensagemModule } from './../../../gatitobook/src/app/componentes/mensagem/mensagem.module';
+import { MensagemModule } from './../componentes/mensagem/mensagem.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
