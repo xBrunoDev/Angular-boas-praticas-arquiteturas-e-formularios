@@ -1,5 +1,4 @@
 import { Router } from '@angular/router';
-import { UsuarioExisteService } from './usuario-existe.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { minusculoValidator } from './minusculo.validator';
@@ -19,7 +18,6 @@ export class NovoUsuarioComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private novoUsuarioService: NovoUsuarioService,
-    private usuarioExisteService: UsuarioExisteService,
     private router:Router
     ) { }
 
@@ -37,9 +35,11 @@ export class NovoUsuarioComponent implements OnInit {
   }
 
   cadastrar() {
+    debugger
     if (this.novoUsuarioForm.valid) {
       const novoUsuario = this.novoUsuarioForm.getRawValue() as NovoUsuario;
-      this.novoUsuarioService.cadastraNovoUsuario(novoUsuario).subscribe(() =>{
+      this.novoUsuarioService.cadastraNovoUsuario(novoUsuario).subscribe(
+        () => {
         this.router.navigate(['']);
       },
         (error) => {
